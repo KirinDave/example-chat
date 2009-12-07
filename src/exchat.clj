@@ -65,7 +65,7 @@
                   (= cmd "/who")  (do (display-users room) (flush)
                                       (recur (read-line) roomname))
                   (= cmd "/quit") :done
-                  true            (do (when (not (empty? input)) (say room input) (flush))
+                  true            (do (when-not (empty? input) (say room input) (flush))
                                       (recur (read-line) roomname))))))
            (finally (cleanup))))))
  
